@@ -297,6 +297,12 @@ header img {
     margin: 5px 10px 10px 5px;
 }
 
+.blog {
+    width: 60%;
+    height: 100%;
+    word-wrap: break-word;
+}
+
 .date {
     margin: 10px 20px;
     font-size: 12px;

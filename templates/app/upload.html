@@ -2,18 +2,31 @@
 <div class="up_wrapper">
     <main class="upload">
         <div class="form">
-            <form action="{% url 'app:uploadpost' %}" enctype="multipart/form-data" method="post">
+            <form action="{% url 'app:uploadpost' %}" autocomplete="off" enctype="multipart/form-data" method="post">
                 <div class="datawrapper">
                     <div class="data">
-                        <input type="file" accept="image/*" name="uploadimg">
+                        <div class="thum">
+                            <label>
+                                <input type="file" id="file" accept="image/*" name="uploadimg" class="uploadimg">
+                                <div class="dataimg">
+                                    <img class="preview" src="{% static 'img/thum_back.png' %}" width="60px" height="60px" style="object-fit: cover;">
+                                </div>
+                            </label>
+                        </div>
                     </div>
                     <div class="data">
-                        <label>一言</label>
-                        <textarea name="text"></textarea>
+                        <div class="text_length">
+                            <label>一言</label>
+                            <p class="text_count">300</p>
+                        </div>
+                        <textarea class="photo_form" name="text"></textarea>
                     </div>
                 </div>
                 <div class="data_submit">
-                    <input type="submit" value="アップロード" class="uploadsubmit"><br>
+                    <input type="submit" value="アップロード" class="uploadsubmit">
+                    <div class="data_submit_mask">
+                        <div class="submit_mask"></div>
+                    </div>
                 </div>
                 {% csrf_token %}
             </form>

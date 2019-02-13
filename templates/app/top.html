@@ -100,7 +100,7 @@
                                         {% endif %}
                                         <p class="fa_count {{i.id}}_count">{{ i.fa_count }}</p>
                                     </div>
-                                    <p class="textView"><span class="user">{{ i.userid }}</span>{{ i.text }}</p>
+                                    <p class="textView"><span class="user">{{ i.userid }}</span><span class="blog">{{ i.text }}</span></p>
                                     <p class="date">{{ i.date }}</p>
                                 </div>
                             </div>
@@ -135,6 +135,7 @@
                     </div>
                 </div>
             </div>
+        <script src="{% static 'js/upload.js' %}"></script>
         <script>
             $('.p-modalBtn').click(function() {
                 $('.p-modal').addClass('is-open');

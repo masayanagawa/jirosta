@@ -33,7 +33,7 @@
 
 .datawrapper {
     width: 100%;
-    padding: 20px 0 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +45,7 @@
 
 .data {
     width: 100%; 
-    margin: 10px 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-flow: column nowrap;
@@ -55,11 +55,51 @@
 .data input[type="file"] {
     width: 90%;
     align-self: center;
+    visibility: hidden;
+}
+
+
+.thum {
+    width: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataimg {
+    width: auto;
+    margin: 0;
+    align-self: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.preview {
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .data label {
     width: 90%;
     align-self: center;
+}
+
+.data .text_length {
+    width: 90%;
+    align-self: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data .text_length p { 
+    margin: 0;
 }
 
 .data textarea {
@@ -73,6 +113,7 @@
     align-self: center;
 }
 
+
 .text {
     width: inherit;
     height: 35px;
@@ -84,10 +125,20 @@
 }
 
 .data_submit {
+    margin: 10px 0 0 0;
     width: 90%;
     align-self: center;
     display: flex;
     justify-content: flex-end;
+}
+
+.data_submit_mask {
+    position: absolute;
+    width: auto;
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+    z-index: -1;
 }
 
 .data_submit .uploadsubmit {
@@ -101,4 +152,19 @@
     border-style: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.submit_mask {
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 120px;
+    height: 40px;
+    font-size: 10px;
+    font-weight: bolder;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.mask_open {
+    z-index: 100;
 }

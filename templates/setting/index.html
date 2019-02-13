@@ -59,7 +59,7 @@
                     {% endif %}
                     <div class="form form_wrapper">
                         <h1>ユーザ情報変更</h1>
-                        <form action="{% url 'app:setting:post' %}" enctype="multipart/form-data" method="POST">
+                        <form action="{% url 'app:setting:post' %}" autocomplete="off" enctype="multipart/form-data" method="POST">
                             <div class="datawrapper">
                                 <div class="data_setting">
                                     <img src="{% static path %}" class="icon">
@@ -88,6 +88,7 @@
                 </div>
             </main>
         </div>
+        <script src="{% static 'js/upload.js' %}"></script>
         <script>
             $('.p-modalBtn').click(function() {
                 $('.p-modal').addClass('is-open');
