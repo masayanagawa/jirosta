@@ -1,0 +1,279 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>二郎スタ</title>
+        <link rel="stylesheet" href="{% static 'css/user/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/user.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/upload.css' %}">
+        <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            {% include  "app/header.html" %}
+            <div class="up-modal">
+                <div class="modal_upload">
+                    <div class="closeBtn upcloseBtn"><img src="/static/img/close.png" alt="閉じる"></div>
+                    {% include  "app/upload.html" %}
+                </div>
+            </div>
+            <div class="p-modal">
+                <div class="f_content">
+                    <div class="closeBtn"><img src="/static/img/close.png" alt="閉じる"></div>
+                    <div class="f_header">
+                        <p>フォロー</p>
+                    </div>
+                    {% if follow %}
+                        <div class="f_list">
+                            {% for i in follow.values %}
+                                <form action="{% url 'app:user:searchuser' %}" method="POST">
+                                    <div class="f_user">
+                                        <input type="image" src="{% static i.path %}">
+                                        <input type="submit" value={{i.userid}}>
+                                        <input type="hidden" name="searchid" value={{i.userid}}>
+                                    </div>
+                                    {% csrf_token %}
+                                </form>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no">
+                            <p>フォローなし</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="p-modal2 closeBtn2">
+                <div class="f_content">
+                    <div class="closeBtn2"><img src="/static/img/close.png" alt="閉じる"></div>
+                    <div class="f_header">
+                            <p>フォロワー</p>
+                    </div>
+                    {% if follower %}
+                        <div class="f_list">
+                            {% for i in follower.values %}
+                                <form action="{% url 'app:user:searchuser' %}" method="POST">
+                                    <div class="f_user">
+                                        <input type="image" src="{% static i.path %}">
+                                        <input type="submit" value={{i.userid}}>
+                                        <input type="hidden" name="searchid" value={{i.userid}}>
+                                    </div>
+                                    {% csrf_token %}
+                                </form>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="no">
+                            <p>フォロワーなし</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="sub_wrapper">
+                <main class="user_timeline">
+                    <div class="userheader">
+                        {% for i in user.values %}
+                            <img src="{% static i.icon %}" alt="プロフィール写真" class="profile_photo">
+                            <div class="profile">
+                                <h1>{{ i.userid }}</h1>
+                                <p>{{ i.profile }}</p>
+                        {% endfor %}
+                            {% if f_exist %}
+                                <a href="/app/user/unfollow/" class="jump"><button class="unfollowButton">フォロー中</button></a>
+                            {% else %}
+                                <a href="/app/user/follow/" class="jump"><button class="followButton">フォローする</button></a>
+                            {% endif %}
+                            <div class="followlist">
+                                <div class="follow">
+                                    <p>フォロー</p>
+                                    <p><span class="int p-modalBtn">{{ followcount }}</span>人</p>
+                                </div>
+                                <div class="follow">
+                                    <p>フォロワー</p>
+                                    <p><span class="int p-modalBtn2">{{ followercount }}</span>人</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if null %}
+                        <div class="null">
+                            <div class="null_content">
+                                <img src="/static/img/null_jiro.jpg" alt="二郎の写真を投稿しよう">
+                                <h2>まだ写真はありません。</h2>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% for i in list.values %}
+                        <div class="photo">
+                            <div class="asideheader">
+                                <img src="{% static icon %}" alt="プロフィール写真" class="profile_icon">
+                                <p>{{ id }}</p>
+                            </div>
+                            <img src="{% static i.photo %}" class="aside_photo">
+                            <div class="info">
+                                <div class="subinfo">
+                                    {% if i.favorited == 0  %}
+                                        <button class="fa_b {{i.id}}" id="favoriteid" value={{i.id}} onclick="Click({{i.id}});"><img src="/static/img/chashu.png" class="icon fa_icon {{i.id}}_icon"></button>
+                                    {% else %}
+                                        <button class="fa_b {{i.id}}" id="unfavoriteid" value={{i.id}} onclick="Click({{i.id}});"><img src="/static/img/chashu_mask.png" class="icon fa_icon {{i.id}}_icon"></button>
+                                    {% endif %}
+                                    <p class="fa_count {{i.id}}_count">{{ i.fa_count }}</p>
+                                </div>
+                                <p class="textView"><span class="user">{{ i.userid }}</span>{{ i.text }}</p>
+                                <p class="date">{{ i.date }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </main>
+            </div>
+        </div>
+        <script>
+            $('.p-modalBtn').click(function() {
+                $('.p-modal').addClass('is-open');
+            })
+
+            $('.closeBtn').click(function() {
+                $('.p-modal').removeClass('is-open');
+            })
+
+            $('.p-modalBtn2').click(function() {
+                $('.p-modal2').addClass('is-open');
+                console.log("add");
+            })
+
+            $('.closeBtn2').click(function() {
+                $('.p-modal2').removeClass('is-open');
+                console.log("remove");
+            })
+
+            $('.uploadBtn').click(function() {
+                $('.up-modal').addClass('is-open');
+            })
+
+            $('.upcloseBtn').click(function() {
+                $('.up-modal').removeClass('is-open');
+            })
+
+            function Click(f){
+                var cl = "." + f
+                var id = $(cl).attr('id');
+                if(id == "favoriteid"){
+                    favorite(f);
+                    console.log(f);
+                } else if(id == "unfavoriteid"){
+                    unfavorite(f);
+                    console.log(f);
+                }
+            }
+
+            function favorite(f) {
+                function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie != '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                var csrftoken = getCookie('csrftoken');
+
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                }
+
+                $.ajaxSetup({
+                    crossDomain: false, // obviates need for sameOrigin test
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type)) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+                console.log(f);
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{% url 'app:user:favorite' %}",
+                    data: "photoid=" + f
+                }).done(function(data){
+                    var cl = "." + f 
+                    console.log(cl);
+                    $(cl).removeAttr('id', 'favoriteid');
+                    $(cl).attr('id', 'unfavoriteid');
+
+                    var cl_img = "." + f + "_icon"
+                    $(cl_img).removeAttr('src', '/static/img/chashu.png');
+                    $(cl_img).attr('src', '/static/img/chashu_mask.png');
+                    var co = data.count
+                    console.log(co);
+                    co = Number(co);
+                    var cl2 = "." + f + "_count"
+                    console.log(cl2);
+                    $(cl2).html(co);
+                });
+                
+            }
+
+            function unfavorite(f) {
+                function getCookie(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie != '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = jQuery.trim(cookies[i]);
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                var csrftoken = getCookie('csrftoken');
+
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                }
+                $.ajaxSetup({
+                    crossDomain: false, // obviates need for sameOrigin test
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type)) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+                console.log(f);
+
+                $.ajax({
+                    type: 'POST',
+                    url: "{% url 'app:user:unfavorite' %}",
+                    data: "photoid=" + f
+                }).done(function(data){
+                    var cl = "." + f 
+                    $(cl).removeAttr('id', 'unfavoriteid');
+                    $(cl).attr('id', 'favoriteid');
+
+                    var cl_img = "." + f + "_icon"
+                    $(cl_img).removeAttr('src', '/static/img/chashu_mask.png');
+                    $(cl_img).attr('src', '/static/img/chashu.png');
+                    var co = data.count
+                    console.log(co);
+                    co = Number(co);
+                    var cl2 = "." + f + "_count"
+                    $(cl2).html(co);
+                });
+                
+            }
+        </script>
+    </body>
+</html>

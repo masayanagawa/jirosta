@@ -1,0 +1,406 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    background-color: #fff100;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #fff100;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub_wrapper {
+    margin: 100px 0;
+    width: 60%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+}
+
+.up_wrapper {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+.searchlist_wrapper {
+    margin: 100px 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff100;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.null_wrapper {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff100;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.null {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.null_content{
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.search_null {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_null_content {
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid 1px #000;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+header form {
+    margin: 0;
+}
+
+header form #search {
+    margin: 0;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc
+
+}
+
+header form input[type=submit] {
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: #fff100;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.menu a {
+    color: #000;
+    margin: 0;
+    text-decoration: none;
+}
+
+.menu a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.menu a img {
+    width: 40px;
+    height: 40px;
+}
+
+.menu a .avg {
+    width: auto;
+    height: 40px;
+}
+
+.menu button {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    margin: 20px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.menu button img {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+}
+
+header img {
+    width: 60px;
+    margin: 20px;
+}
+
+
+
+
+.timeline {
+    width: 60%;
+    margin: 50px 0;
+    align-self: flex-start;
+
+}
+
+.user_timeline {
+    width: 65%;
+    margin: 50px 0;
+    align-self: center;
+
+}
+
+.null_content img {
+    width: 200px;
+    margin: 50px;
+}
+
+.null_content h1 {
+    font-size: 30px;
+    margin: 5px 0;
+}
+
+.null_content h2 {
+    font-size: 35px;
+}
+
+.null_content p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.userlist {
+    width: 80%;
+    margin: 50px 0;
+}
+
+.img {
+    width: 100%;
+}
+
+.asideheader {
+    width: inherit;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.asideheader form {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.asideheader p {
+    font-weight: bold;
+    margin: 20px;
+}
+
+.fa_b {
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    width: 50px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.fa_b .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.photo {
+    background-color: #fff;
+    margin-bottom: 50px;
+    border: solid 1px #000;
+    border-radius: 5px;
+}
+
+.info {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.subinfo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.subinfo form {
+    margin: 0;
+}
+
+.textView {
+    margin: 5px 10px 10px 5px;
+}
+
+.date {
+    margin: 10px 20px;
+    font-size: 12px;
+    align-self: flex-end;
+
+}
+
+.user {
+    background-color: rgba(172, 55, 55, 0);
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.fa_count {
+    margin: 0;
+    font-weight: bold;
+}
+
+.user_profile {
+    position: fixed;
+    padding: 15px;
+    width: 20%;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px #000;
+    margin-top: 50px;
+
+}
+
+.user_profile p {
+    margin: 20px;
+    font-weight: bold;
+}
+
+.u_data {
+    width: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px 0;
+}
+
+.u_data a {
+    color: #000;
+    text-decoration: none;
+}
+
+.ff {
+    width: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    
+}
+
+.f {
+    width: 100px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.f p {
+    margin: 0;
+}
+
+
+
+.pro_icon {
+    width: 70px;
+    height: 70px;
+}
+
+.up-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_upload {
+    background: #fff;
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+}

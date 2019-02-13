@@ -1,0 +1,25 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>二郎スタ</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body> 
+        {% if sucsess %}
+            <div class="sucsess">
+                <p>{{ sucsess }}</p>
+            </div>
+        {% endif %}
+        <div class="wrapper">
+            <img src="{% static 'img/jirosta_logo.png' %}">
+            <div class="button">
+                <a href="/app/userAuth/register/" class="register">新規登録</a>
+                <a href="/app/userAuth/login/" class="login">ログイン</a>
+            </div>
+        </div>
+        <footer>
+            <p>©二郎スタ</p>
+        </footer> 
+        </body>
+</html>

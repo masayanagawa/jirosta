@@ -1,0 +1,109 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>二郎スタ</title>
+        <link rel="stylesheet" href="{% static 'css/user/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/user.css' %}">
+        <link rel="stylesheet" href="{% static 'css/setting/setting.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/upload.css' %}">
+        <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    </head>
+    <body class="setting_wrapper">
+        <div class="wrapper">
+        {% include  "app/header.html" %}
+            <div class="up-modal">
+                <div class="modal_upload">
+                    <div class="closeBtn upcloseBtn"><img src="/static/img/close.png" alt="閉じる"></div>
+                    {% include  "app/upload.html" %}
+                </div>
+            </div>
+            <div class="p-modal">
+                <div class="final">
+                    <div class="closeBtn"><img src="/static/img/close.png" alt="閉じる"></div>
+                    <form action="{% url 'app:setting:unregister' %}" enctype="multipart/form-data" method="POST" class="unregisterform">
+                        <div class="pw">
+                            <label>
+                                <p>本当に退会しますか？</p>
+                                <p>退会する場合は、パスワードを入力してください。</p>
+                            </label>
+                            <input type="password" name="pw" class="text">
+                        </div>
+                        <input type="submit" value="退会する" class="submit taikai">
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+            <main class="setting">
+                <div class="side">
+                    <div class="settingmenu">
+                        <a href="/app/setting/" class="selected">ユーザ情報変更</a>
+                        <a href="/app/setting/password">パスワード変更</a>
+                    </div>
+                    <div class="settingmenu logoutButton">
+                        <a href="/app/userAuth/logout">ログアウト</a>
+                    </div>
+                </div> 
+                <div class="change">
+                    {% if error  %}
+                        <div class="error">
+                            {% for msg in error %}
+                            <p>{{ msg }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if sucsess %}
+                        <div class="sucsess">
+                            <p>{{ sucsess }}</p>
+                        </div>
+                    {% endif %}
+                    <div class="form form_wrapper">
+                        <h1>ユーザ情報変更</h1>
+                        <form action="{% url 'app:setting:post' %}" enctype="multipart/form-data" method="POST">
+                            <div class="datawrapper">
+                                <div class="data_setting">
+                                    <img src="{% static path %}" class="icon">
+                                    <input type="file" accept="image/*" name="img">
+                                </div>
+                                <div class="data_setting">
+                                    <label>id</label>
+                                    <input type="text" name="id" class="text" value={{id}}>
+                                </div>
+                                <div class="data_setting">
+                                    <label>ニックネーム</label>
+                                    <input type="text" name="username" class="text" value={{username}}>
+                                </div>
+                                <div class="data_setting">
+                                    <label>自己紹介</label>
+                                    <textarea name="profile">{{profile}}</textarea>
+                                </div>
+                            </div>
+                            <input type="submit" value="ユーザ情報を変更" class="submit"><br>
+                            {% csrf_token %}
+                        </form>
+                        <div class="unregister">
+                            <button class="p-modalBtn  unregisterBtn">退会する</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            $('.p-modalBtn').click(function() {
+                $('.p-modal').addClass('is-open');
+            })
+
+            $('.closeBtn').click(function() {
+                $('.p-modal').removeClass('is-open');
+            })
+            
+            $('.uploadBtn').click(function() {
+                $('.up-modal').addClass('is-open');
+            })
+
+            $('.upcloseBtn').click(function() {
+                $('.up-modal').removeClass('is-open');
+            })
+        </script>
+    </body>
+</html>

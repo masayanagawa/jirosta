@@ -1,0 +1,22 @@
+{% load static %}
+<div class="up_wrapper">
+    <main class="upload">
+        <div class="form">
+            <form action="{% url 'app:uploadpost' %}" enctype="multipart/form-data" method="post">
+                <div class="datawrapper">
+                    <div class="data">
+                        <input type="file" accept="image/*" name="uploadimg">
+                    </div>
+                    <div class="data">
+                        <label>一言</label>
+                        <textarea name="text"></textarea>
+                    </div>
+                </div>
+                <div class="data_submit">
+                    <input type="submit" value="アップロード" class="uploadsubmit"><br>
+                </div>
+                {% csrf_token %}
+            </form>
+        </div>
+    </main>
+</div>

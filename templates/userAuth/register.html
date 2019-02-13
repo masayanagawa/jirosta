@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>二郎スタ</title>
+        <link rel="stylesheet" href="{% static 'css/userAuth/register.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <img src="{% static 'img/jirosta_logo.png' %}">
+            {% if error  %}
+                <div class="error">
+                    {% for msg in error %}
+                    <p>{{ msg }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="form">
+                <h1>新規登録</h1>
+                <form action="{% url 'app:userAuth:register' %}" method="POST">
+                    <div class="datawrapper">
+                        <div class="data">
+                            <label>ID・・・・・・・</label>
+                            <input type="text" name="id" placeholder="ID" class="text">
+                        </div>
+                        <div class="data">
+                            <label>パスワード・・・・・・・</label>
+                            <input type="password" name="pw" placeholder="パスワード" class="text">
+                        </div>
+                        <div class="data">
+                            <label>パスワード(再確認)・・・・・・・</label>
+                            <input type="password" name="pw2" placeholder="パスワード(再入力)" class="text">
+                        </div>
+                    </div>
+                    <input type="submit" value="次へ"><br>
+                    {% csrf_token %}
+                </form>
+            </div>
+            <a href="/"><button class="back">戻る</button></a>
+        </div>
+    </body>
+</html>

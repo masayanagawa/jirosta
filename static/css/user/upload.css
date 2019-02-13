@@ -1,0 +1,104 @@
+.upload {
+    width: inherit;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: solid 1px #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.error {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffbfbf;
+    border: solid 1px #ff0000;
+    color: #ff0000;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.modal_upload .upload {
+    border: none;
+    margin: 0;
+}
+
+.form form {
+    width: inherit;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.datawrapper {
+    width: 100%;
+    padding: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal_upload .datawrapper {
+    padding: 0;
+}
+
+.data {
+    width: 100%; 
+    margin: 10px 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+.data input[type="file"] {
+    width: 90%;
+    align-self: center;
+}
+
+.data label {
+    width: 90%;
+    align-self: center;
+}
+
+.data textarea {
+    width: 90%;
+    height: 80px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-style: none;
+    border: solid 1px #ccc;
+    resize: none;
+    align-self: center;
+}
+
+.text {
+    width: inherit;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-style: none;
+    border: solid 1px #ccc;
+    align-self: center;
+}
+
+.data_submit {
+    width: 90%;
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.data_submit .uploadsubmit {
+    margin: 0;
+    background-color: #000;
+    width: 120px;
+    height: 40px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: bolder;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

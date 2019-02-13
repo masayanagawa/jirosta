@@ -1,0 +1,64 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>二郎スタ</title>
+        <link rel="stylesheet" href="{% static 'css/user/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/user.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/upload.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user/search.css' %}">
+        <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    </head>
+    <body>
+        {% if list %}
+            <div class="wrapper">
+                {% include  "app/header.html" %}
+                <div class="up-modal">
+                    <div class="modal_upload">
+                        <div class="closeBtn upcloseBtn"><img src="/static/img/close.png" alt="閉じる"></div>
+                        {% include  "app/upload.html" %}
+                    </div>
+                </div>
+                <div class="searchlist_wrapper">
+                    <main class="userlist">
+                        {% for i in list.values %}
+                            <a href="/app/user/searchuser/">
+                                <div class="photo">
+                                    <div class="asideheader search_aside">
+                                        <img src="{% static i.icon %}" alt="プロフィール写真" class="search_icon">
+                                        <p>{{ i.userid }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </main>
+                </div>
+            </div>
+        {% else %}
+            <div class="null_wrapper">
+                {% include  "app/header.html" %}
+                <div class="up-modal">
+                    <div class="modal_upload">
+                        <div class="closeBtn upcloseBtn"><img src="/static/img/close.png" alt="閉じる"></div>
+                        {% include  "app/upload.html" %}
+                    </div>
+                </div>
+                <div class="null search_null">
+                    <div class="null_content search_null_content">
+                        <img src="/static/img/null_jiro.jpg" alt="二郎の写真を投稿しよう">
+                        <h2>検索したジロリアンがいませんでした。</h2>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </body>
+    <script>
+        $('.uploadBtn').click(function() {
+            $('.up-modal').addClass('is-open');
+        })
+
+        $('.upcloseBtn').click(function() {
+            $('.up-modal').removeClass('is-open');
+        })
+    </script>
+</html>

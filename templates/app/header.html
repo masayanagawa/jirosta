@@ -1,0 +1,14 @@
+{% load static %}
+<header>
+    <a href="/app/top"><img src="{% static 'img/jirosta_logo.png' %}"></a>
+    <form action="{% url 'app:user:search' %}" method="post">
+        <input type="text" name="search" id="search" placeholder="ユーザIDを入力して検索">
+        <input type="submit" value="検索">
+        {% csrf_token %}
+    </form>
+    <div class="menu">
+        <button class="uploadBtn"><img src="/static/img/upload.png" alt="アップロード"></button>
+        <a href="/app/user"><img src="/static/img/user.png" alt="ユーザ" class="avg"></a>
+        <a href="/app/setting"><img src="/static/img/setting.png" alt="設定"></a>
+    </div>
+</header>
