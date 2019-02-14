@@ -7,17 +7,6 @@
     box-sizing: border-box;
 }
 
-/* .error {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #ffbfbf;
-    border: solid 1px #ff0000;
-    color: #ff0000;
-    font-size: 14px;
-    border-radius: 5px;
-    visibility: hidden;
-} */
-
 .error_open {
     visibility: visible;
 }
@@ -58,7 +47,8 @@
 }
 
 .data input[type="file"] {
-    width: 90%;
+    position: absolute;
+    width: 0;
     align-self: center;
     margin: 0;
     visibility: hidden;
@@ -66,6 +56,7 @@
 
 
 .thum {
+    margin: 10px 0;
     width: 90%;
     align-self: center;
     display: flex;
@@ -155,6 +146,15 @@
     z-index: -1;
 }
 
+.modal_data_submit_mask {
+    position: absolute;
+    width: auto;
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+    z-index: -1;
+}
+
 .data_submit .uploadsubmit {
     margin: 0;
     background-color: #000;
@@ -167,6 +167,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
 
 .submit_mask {
     margin: 0;
