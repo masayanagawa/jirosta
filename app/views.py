@@ -146,9 +146,7 @@ def uploadpost(request, *args, **kwargs):
             img_copy = Image.open("./static/img/%s/%s" % (userid, new_path))
 
             new_size = 750
-
-            if 1000 < img_copy.width:
-                new_size = 1000
+            
             if 2000 < img_copy.width:
                 new_size = 2000
             if 3000 < img_copy.width:

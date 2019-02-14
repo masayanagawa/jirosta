@@ -36,18 +36,6 @@ html, body {
     align-items: flex-start;
 }
 
-.searchlist_wrapper {
-    margin: 100px 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff100;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
 .null_wrapper {
     margin: 0;
     width: 100%;
@@ -63,11 +51,28 @@ html, body {
 .null {
     width: 100%;
     height: inherit;
+    background-color: #fff;
+    border: solid 1px #000;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.searchlist_wrapper {
+    margin: 100px 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff100;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
+
 
 .null_content{
     width: 100%;
@@ -82,6 +87,7 @@ html, body {
 .search_null {
     width: 100%;
     height: inherit;
+    background-color: #fff100;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -201,12 +207,12 @@ header img {
 
 .null_content img {
     width: 200px;
-    margin: 50px;
+    margin: 50px 0;
 }
 
 .null_content h1 {
-    font-size: 30px;
-    margin: 5px 0;
+    font-size: 25px;
+    margin: 0;
 }
 
 .null_content h2 {
