@@ -19,6 +19,7 @@ from PIL import ImageDraw
 from collections import OrderedDict
 
 
+# ユーザページ
 def index(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -126,7 +127,7 @@ def index(request):
     request.session["path"] = "/app/user/"
     return render(request, "user/index.html", param)
 
-
+# 検索結果ページ
 def search(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -156,7 +157,7 @@ def search(request):
 
 
 
-
+# 検索結果対象ユーザページ
 def searchuser(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -272,6 +273,7 @@ def searchuser(request):
     return render(request, "user/searchuser.html", param)
 
 
+# フォロー処理
 def follow(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -281,6 +283,7 @@ def follow(request):
     FollowMaster(followid=followid, userid=userid).save()
     return HttpResponseRedirect("/app/user/searchuser/")
 
+# フォロー解除処理
 def unfollow(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -290,6 +293,7 @@ def unfollow(request):
     FollowMaster.objects.get(followid=followid, userid=userid).delete()
     return HttpResponseRedirect("/app/user/searchuser/")
 
+# 豚(いいね)処理
 def favorite(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -305,6 +309,7 @@ def favorite(request):
     }
     return JsonResponse(d)
 
+#豚(いいね)取り消し処理
 def unfavorite(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path

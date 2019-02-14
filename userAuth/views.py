@@ -13,6 +13,8 @@ from .models import UserMaster
 import os
 from PIL import Image
 from PIL import ImageDraw
+
+# 新規登録ページ
 class registerView(TemplateView):
     template_name = "userAuth/register.html"
     def post(self, request, *args, **kwargs):
@@ -59,6 +61,7 @@ class registerView(TemplateView):
 
 register = registerView.as_view()
 
+# ログインページ
 class loginView(TemplateView):
     template_name = "userAuth/login.html"
     def post(self, request, *args, **kwargs):
@@ -91,6 +94,7 @@ class loginView(TemplateView):
 
 login = loginView.as_view()
 
+# 新規登録処理&プロフィール入力ページ
 class createView(TemplateView):
     template_name = "userAuth/createuser.html"
     def post(self, request, *args, **kwargs):

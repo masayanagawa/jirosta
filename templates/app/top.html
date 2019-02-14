@@ -113,7 +113,7 @@
                     <div class="user_profile">
                         {% for u in user.values %}
                             <div class="u_data">
-                                <a href="/app/user"><img src="{% static u.path %}" class="pro_icon"></a>
+                                <a href="/app/user"><img src="{% static u.path %}" class="pro_icon" alt="icon"></a>
                                 <p><a href="/app/user">{{u.userid}}</a></p>
                             </div>
                             <div class="ff">

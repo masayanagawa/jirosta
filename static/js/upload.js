@@ -1,4 +1,5 @@
 $(function () {
+    //テキストの入力確認
     var val = $(".photo_form").val();
     if(!val){
         $(".data_submit_mask").addClass("mask_open");
@@ -9,6 +10,7 @@ $(function () {
     }
 })
 
+//アップロードファイルの存在確認
 var file = $(".uploadimg").change(function () {
     $(".data_submit_mask").removeClass("mask_open");
 });
@@ -17,6 +19,7 @@ var file = $(".modal_uploadimg").change(function () {
     $(".modal_data_submit_mask").removeClass("mask_open");
 });
 
+//テキストの文字数カウントダウン
 $(".photo_form").bind("keyup",function(){
     var count = $(this).val().length;
     count = 300 - count;
@@ -46,6 +49,7 @@ $(".modal_photo_form").bind("keyup",function(){
 });
 
 
+//サムネイル表示
 $('.uploadimg').change(function(){
     if (this.files.length > 0) {
         var file = this.files[0];

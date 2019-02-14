@@ -21,6 +21,7 @@ from PIL import ImageDraw
 
 from collections import OrderedDict
 
+# トップページ
 def top(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -113,23 +114,14 @@ def top(request):
     request.session["path"] = "/app/top"
     return render(request, "app/top.html", param)
 
-
+# アップロードページ
 def upload(request):
     null = False
     if not 'ID' in request.session:
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
-    
-    if 'null' in request.session:
-        null = True
-        errmsg = request.session['null']
-        del request.session['null']
-    param = {
-        "null": null,
-        "msg": errmsg
-    }
-    return render(request, "app/upload.html")
 
+# アップロード処理
 def uploadpost(request, *args, **kwargs):
     if not 'ID' in request.session:
         request.session["path"] = request.path
@@ -179,7 +171,7 @@ def uploadpost(request, *args, **kwargs):
             return HttpResponseRedirect("/app/top")
         else:
             request.session['null'] = "画像を選択してください"
-            return HttpResponseRedirect("/app/upload")
+            return HttpResponseRedirect("/app/top")
     except PhotoMaster.DoesNotExist:
         request.session['null'] = "登録エラー"
-        return HttpResponseRedirect("/app/upload")
+        return HttpResponseRedirect("/app/top")
