@@ -157,11 +157,11 @@ def uploadpost(request, *args, **kwargs):
 
             if 1000 < img_copy.width:
                 new_size = 1000
-            elif 2000 < img_copy.width:
+            if 2000 < img_copy.width:
                 new_size = 2000
-            elif 3000 < img_copy.width:
+            if 3000 < img_copy.width:
                 new_size = 3000
-            elif 4000 < img_copy.width:
+            if 4000 < img_copy.width:
                 new_size = 4000
 
 

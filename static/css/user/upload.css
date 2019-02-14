@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-.error {
+/* .error {
     margin-bottom: 20px;
     padding: 10px;
     background-color: #ffbfbf;
@@ -16,7 +16,7 @@
     font-size: 14px;
     border-radius: 5px;
     visibility: hidden;
-}
+} */
 
 .error_open {
     visibility: visible;
@@ -60,6 +60,7 @@
 .data input[type="file"] {
     width: 90%;
     align-self: center;
+    margin: 0;
     visibility: hidden;
 }
 

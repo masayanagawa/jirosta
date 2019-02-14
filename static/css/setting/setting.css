@@ -209,13 +209,19 @@ input[type="file"] {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .unregisterform {
+    width: 90%; 
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.pw {
+    width: 70%;
 }
 
 .taikai {
