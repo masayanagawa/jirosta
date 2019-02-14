@@ -15,7 +15,7 @@
             <div class="up-modal">
                 <div class="modal_upload">
                     <div class="closeBtn upcloseBtn"><img src="/static/img/close.png" alt="閉じる"></div>
-                    {% include  "app/upload.html" %}
+                    {% include  "app/modal_upload.html" %}
                 </div>
             </div>
             <div class="p-modal">
@@ -63,7 +63,7 @@
                             <div class="datawrapper">
                                 <div class="data_setting">
                                     <img src="{% static path %}" class="icon">
-                                    <input type="file" accept="image/*" name="img">
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="img">
                                 </div>
                                 <div class="data_setting">
                                     <label>id</label>

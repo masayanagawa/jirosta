@@ -15,6 +15,11 @@
     color: #ff0000;
     font-size: 14px;
     border-radius: 5px;
+    visibility: hidden;
+}
+
+.error_open {
+    visibility: visible;
 }
 
 .modal_upload .upload {
@@ -60,11 +65,17 @@
 
 
 .thum {
-    width: inherit;
+    width: 90%;
+    align-self: center;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.thum .label {
+    width: 60px;
+    align-self: flex-start;
 }
 
 .dataimg {
@@ -82,12 +93,14 @@
     margin: 5px 0;
     border-radius: 5px;
     cursor: pointer;
+    align-self: flex-start;
 }
 
 .data label {
     width: 90%;
     align-self: center;
 }
+
 
 .data .text_length {
     width: 90%;
@@ -166,5 +179,5 @@
 }
 
 .mask_open {
-    z-index: 100;
+    z-index: 2;
 }

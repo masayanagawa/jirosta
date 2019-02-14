@@ -16,7 +16,7 @@
                 <div class="up-modal">
                     <div class="modal_upload">
                         <div class="closeBtn upcloseBtn"><img src="/static/img/close.png" alt="閉じる"></div>
-                        {% include  "app/upload.html" %}
+                        {% include  "app/modal_upload.html" %}
                     </div>
                 </div>
                 <div class="p-modal">
@@ -73,11 +73,6 @@
                 </div>
                 <div class=sub_wrapper>
                     <main class="timeline">
-                        {% if null  %}
-                            <div class="error">
-                                <p>{{ msg }}</p>
-                            </div>
-                        {% endif %}
                         {% include  "app/upload.html" %}
                         {% if list %}
                             {% for i in list.values %}

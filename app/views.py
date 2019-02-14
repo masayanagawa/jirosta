@@ -115,10 +115,19 @@ def top(request):
 
 
 def upload(request):
+    null = False
     if not 'ID' in request.session:
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
-
+    
+    if 'null' in request.session:
+        null = True
+        errmsg = request.session['null']
+        del request.session['null']
+    param = {
+        "null": null,
+        "msg": errmsg
+    }
     return render(request, "app/upload.html")
 
 def uploadpost(request, *args, **kwargs):
@@ -141,10 +150,21 @@ def uploadpost(request, *args, **kwargs):
                 
             offset = 0
 
-            new_size = 750
-
 
             img_copy = Image.open("./static/img/%s/%s" % (userid, new_path))
+
+            new_size = 750
+
+            if 1000 < img_copy.width:
+                new_size = 1000
+            elif 2000 < img_copy.width:
+                new_size = 2000
+            elif 3000 < img_copy.width:
+                new_size = 3000
+            elif 4000 < img_copy.width:
+                new_size = 4000
+
+
             # 中心座標を計算
             center_x = int(img_copy.width / 2)
             center_y = int(img_copy.height / 2)
@@ -159,7 +179,7 @@ def uploadpost(request, *args, **kwargs):
             return HttpResponseRedirect("/app/top")
         else:
             request.session['null'] = "画像を選択してください"
-            return HttpResponseRedirect("/app/top")
+            return HttpResponseRedirect("/app/upload")
     except PhotoMaster.DoesNotExist:
         request.session['null'] = "登録エラー"
-        return HttpResponseRedirect("/app/top")
+        return HttpResponseRedirect("/app/upload")
