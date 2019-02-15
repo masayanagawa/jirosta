@@ -11,7 +11,7 @@
 
 .setting {
     margin: 50px 0;
-    width: 60%;
+    width: 860px;
     height: 100%;
     display: flex;
     flex-flow: column wrap;
@@ -26,7 +26,7 @@
 }
 
 .side {
-    width: 18%;
+    width: 250px;
     position: fixed;
     display: flex;
     flex-flow: column nowrap;
