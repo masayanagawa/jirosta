@@ -28,6 +28,7 @@ $(".photo_form").bind("keyup",function(){
         $(".data_submit_mask").addClass("mask_open");
     } else {
         $(".text_count").css('color', 'black');
+        $(".data_submit_mask").removeClass("mask_open");
     }
     $(".text_count").text(count);
     
