@@ -72,7 +72,7 @@
 }
 
 .form_wrapper {
-    border: solid 1px #000;
+    box-shadow: 4px 2px 4px -2px #999;
 }
 
 h1 {
@@ -105,8 +105,8 @@ h1 {
 
 .data_setting .text {
     width: 100%;
-    height: 35px;
-    font-size: 20px;
+    height: 50px;
+    font-size: 24px;
     border-radius: 5px;
     border-style: none;
     border: solid 1px #ccc;
@@ -247,8 +247,8 @@ input[type="file"] {
 
 .pw .text {
     width: 100%;
-    height: 35px;
-    font-size: 20px;
+    height: 50px;
+    font-size: 26px;
     border-radius: 5px;
     border-style: none;
     border: solid 1px #ccc;

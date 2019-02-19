@@ -73,7 +73,10 @@
                 <main class="user_timeline">
                     <div class="userheader">
                         {% for i in user.values %}
-                            <img src="{% static i.icon %}" alt="プロフィール写真" class="profile_photo">
+                            <div class="profile_photo">
+                                <img src="{% static i.icon %}" alt="プロフィール写真">
+                                <div class="shadow"></div>
+                            </div>
                             <div class="profile">
                                 <h1>{{ i.userid }}</h1>
                                 <p>{{ i.profile }}</p>

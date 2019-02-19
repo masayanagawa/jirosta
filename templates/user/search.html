@@ -23,7 +23,7 @@
                     <main class="userlist">
                         {% for i in list.values %}
                             <a href="/app/user/searchuser/">
-                                <div class="photo">
+                                <div class="search_user">
                                     <div class="asideheader search_aside">
                                         <img src="{% static i.icon %}" alt="プロフィール写真" class="search_icon">
                                         <p>{{ i.userid }}</p>
@@ -52,7 +52,6 @@
             </div>
         {% endif %}
     </body>
-    <script src="{% static 'js/upload.js' %}"></script>
     <script>
         $('.uploadBtn').click(function() {
             $('.up-modal').addClass('is-open');

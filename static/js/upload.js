@@ -1,7 +1,7 @@
 $(function () {
     //テキストの入力確認
     var val = $(".photo_form").val();
-    if(!val){
+    if(!val || val == 0){
         $(".data_submit_mask").addClass("mask_open");
         $(".modal_data_submit_mask").addClass("mask_open");
     } else {
@@ -9,6 +9,7 @@ $(function () {
         $(".modal_data_submit_mask").removeClass("mask_open");
     }
 })
+
 
 //アップロードファイルの存在確認
 var file = $(".uploadimg").change(function () {
@@ -25,6 +26,8 @@ $(".photo_form").bind("keyup",function(){
     count = 300 - count;
     if(count < 0) {
         $(".text_count").css('color', 'red');
+        $(".data_submit_mask").addClass("mask_open");
+    } else if(count == 300) {
         $(".data_submit_mask").addClass("mask_open");
     } else {
         $(".text_count").css('color', 'black');

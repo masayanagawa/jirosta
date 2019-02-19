@@ -23,3 +23,10 @@
     font-weight: bold;
 }
 
+.search_user {
+    background-color: #fff;
+    margin-bottom: 50px;
+    /* border: solid 1px #000; */
+    box-shadow: 4px 2px 4px -2px #999;
+    border-radius: 5px;
+}

@@ -52,7 +52,8 @@ html, body {
     width: 100%;
     height: inherit;
     background-color: #fff;
-    border: solid 1px #000;
+    /* border: solid 1px #000; */
+    box-shadow: 4px 2px 4px -2px #999;
     border-radius: 5px;
     display: flex;
     flex-flow: column nowrap;
@@ -114,7 +115,8 @@ header {
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-    border-bottom: solid 1px #000;
+    /* border-bottom: solid 1px #000; */
+    box-shadow: 4px 2px 4px -2px #999;
     z-index: 5;
 }
 
@@ -239,7 +241,7 @@ header img {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px 20px;
+    padding: 10px 20px;
 }
 
 .asideheader form {
@@ -248,7 +250,7 @@ header img {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px 0;
+    margin: 0;
 }
 
 .asideheader p {
@@ -280,9 +282,16 @@ header img {
 .photo {
     background-color: #fff;
     margin-bottom: 50px;
-    border: solid 1px #000;
+    /* border: solid 1px #000; */
+    box-shadow: 4px 2px 4px -2px #999;
     border-radius: 5px;
+    /* animation: fadeIn 1s ease 0s 1 normal; */
 }
+
+/* @keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+} */
 
 .info {
     display: flex;
@@ -343,7 +352,7 @@ header img {
     flex-flow: column nowrap;
     background-color: #fff;
     border-radius: 5px;
-    border: solid 1px #000;
+    box-shadow: 4px 2px 4px -2px #999;
     margin-top: 50px;
 
 }
