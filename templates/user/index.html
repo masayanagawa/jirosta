@@ -109,9 +109,9 @@
                             <div class="info">
                                 <div class="subinfo">
                                     {% if i.favorited == 0  %}
-                                        <button class="fa_b {{i.id}}" id="favoriteid" value={{i.id}} onclick="Click({{i.id}});"><img src="/static/img/chashu.png" class="icon fa_icon {{i.id}}_icon"></button>
+                                        <button class="fa_b {{i.id}}" id="favoriteid" value={{i.id}} onclick="Click({{i.id}});"><img src="/static/img/chashu_mask.png" class="icon fa_icon {{i.id}}_icon"></button>
                                     {% else %}
-                                        <button class="fa_b {{i.id}}" id="unfavoriteid" value={{i.id}} onclick="Click({{i.id}});"><img src="/static/img/chashu_mask.png" class="icon fa_icon {{i.id}}_icon"></button>
+                                        <button class="fa_b {{i.id}}" id="unfavoriteid" value={{i.id}} onclick="Click({{i.id}});"><img src="/static/img/chashu.png" class="icon fa_icon {{i.id}}_icon"></button>
                                     {% endif %}
                                     <p class="fa_count {{i.id}}_count">{{ i.fa_count }}</p>
                                 </div>
@@ -207,8 +207,8 @@
                 $(cl).attr('id', 'unfavoriteid');
 
                 var cl_img = "." + f + "_icon"
-                $(cl_img).removeAttr('src', '/static/img/chashu.png');
-                $(cl_img).attr('src', '/static/img/chashu_mask.png');
+                $(cl_img).removeAttr('src', '/static/img/chashu_mask.png');
+                $(cl_img).attr('src', '/static/img/chashu.png');
                 var co = data.count
                 console.log(co);
                 co = Number(co);
@@ -261,8 +261,8 @@
                 $(cl).attr('id', 'favoriteid');
 
                 var cl_img = "." + f + "_icon"
-                $(cl_img).removeAttr('src', '/static/img/chashu_mask.png');
-                $(cl_img).attr('src', '/static/img/chashu.png');
+                $(cl_img).removeAttr('src', '/static/img/chashu.png');
+                $(cl_img).attr('src', '/static/img/chashu_mask.png');
                 var co = data.count
                 console.log(co);
                 co = Number(co);
