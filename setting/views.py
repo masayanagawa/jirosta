@@ -21,6 +21,9 @@ def index(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
+
+    request.session["upload_path"] = request.path
+
     user = []
 
     userid = request.session["ID"]
@@ -148,6 +151,8 @@ def password(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
+    request.session["upload_path"] = request.path
+    
     return render(request, "setting/password.html")
 
 def postpassword(request):

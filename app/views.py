@@ -26,6 +26,8 @@ def top(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
+    
+    request.session["upload_path"] = request.path
 
     p_list = {}
     List = ""
@@ -166,7 +168,9 @@ def uploadpost(request, *args, **kwargs):
             img_crop.save("./static/img/%s/%s" % (userid, new_path))
 
             request.session["path"] = "/app/top"
-            return HttpResponseRedirect("/app/top")
+            if 'upload_path' in request.session:
+                path = request.session['upload_path']
+                return HttpResponseRedirect(path)
         else:
             request.session['null'] = "画像を選択してください"
             return HttpResponseRedirect("/app/top")

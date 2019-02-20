@@ -44,6 +44,10 @@
     margin: 0;
 }
 
+.profile p {
+    margin: 5px 0 10px;
+}
+
 .photolist {
     margin: 30px;
     width: inherit;

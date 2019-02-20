@@ -25,6 +25,7 @@ def index(request):
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
 
+    request.session["upload_path"] = request.path
 
     p_list = {}
     Photo = {}
@@ -133,6 +134,8 @@ def search(request):
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
 
+    request.session["upload_path"] = request.path
+
 
     p_list = {}
     id = request.POST.get('search')
@@ -162,6 +165,8 @@ def searchuser(request):
     if not 'ID' in request.session:
         request.session["path"] = request.path
         return HttpResponseRedirect("/userAuth/login/")
+
+    request.session["upload_path"] = request.path
 
     null = False
     p_list = {}

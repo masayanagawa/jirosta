@@ -2,8 +2,9 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    display: flex;
     background-color: #fff100;
+    background-attachment: fixed;
+    display: flex;
     flex-flow: column nowrap;
     align-items: center;
 }
@@ -14,6 +15,7 @@ html, body {
     padding: 0;
     width: 100%;
     background-color: #fff100;
+    background-attachment: fixed;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
