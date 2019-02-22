@@ -1,1 +1,1 @@
-web: gunicorn <your-project-name>.asgi --log-file -
+web: gunicorn jirosta.asgi --log-file -
