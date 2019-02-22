@@ -23,16 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3qg-h#qlyn)6iq*m_x6*fre%)_$1sj6mz8kvax!8sl6v^5(w1s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-if not DEBUG:
-    import django_heroku
-    django_heroku.settings(locals())
 
 ALLOWED_HOSTS = []
 
@@ -141,3 +131,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img/')
 MEDIA_URL = 'static/img/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+if not DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
