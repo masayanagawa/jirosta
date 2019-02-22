@@ -1,1 +1,1 @@
-web: gunicorn jirosta.asgi --log-file -
+web: gunicorn jiro.wsgi --log-file -
